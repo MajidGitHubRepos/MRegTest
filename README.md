@@ -92,8 +92,11 @@ The transformations scripts are called by other project to perfrom the required 
     - Right click on ```MRegressinPanel.java``` and run it as java applcation.
     - Then, the following window with two tabs will pop up. 
     - The first tab ```mutants generator``` provides you with the functionality for generating mutants from a model
+
 ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/RegressionTesting.png)
+    
     - The second tab ```RegressionTest``` allows you to perform regression testing on either multiple modified models or signel modified model
+    
 ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/mutantsgenerator.png)
 
 ## Source code layout
