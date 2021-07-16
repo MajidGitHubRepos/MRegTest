@@ -8,12 +8,6 @@ MRegTest provides a regression testing approach for distributed UML-RT modles de
 
 A detailed description of the MRegTest can be found in our [MODELS 2021](https://github.com/MajidGitHubRepos/MRegTest/blob/main/MRegTest_technicalPaper.pdf) paper.
 
-## A Demonstration Video
-> The graphical user interface of our tool is developed on top of the   @drawio which uses mxGraph library. You can find more information in [Drawio in Github](https://github.com/jgraph/drawio).
-
-
-[<p style="text-align:center;"><img src="https://i.ibb.co/nbM8rL6/You-Tube-icon.png" width="193" height="130"></p>](https://www.youtube.com/watch?v=Gi5auwV3L5o)
-
 
 # Usage
 Please note that we assume that [PapyrusRT-distribution](https://github.com/kjahed/papyrusrt-distribution) and [Eclipse Modeling Framework](https://www.eclipse.org/modeling/emf/) are avaiable on your system.
