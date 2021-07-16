@@ -6,7 +6,6 @@
 - [x] Maven 3
 - [x] `java.io` Scanner, BufferedReader/Buffered
 - [x] `java.util` Collections API
-- [x] `java.sql` JDBC - PreparedStatement, CallableStatement
 - [X] JUnit 4
 - [X] log4j (or other logging framework)
 - [X] [Eclipse Papyrus for Real-time](https://eclipse.org/papyrus-rt/) (Papyrus-RT)
