@@ -1,7 +1,6 @@
 # MRegTest Requirements
 
-## Requirements
-### Tools & APIs
+## Tools & APIs
 - [x] Java SE 8
 - [x] Maven 3
 - [x] `java.io` Scanner, BufferedReader/Buffered
