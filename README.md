@@ -25,7 +25,7 @@ Please note that we assume that [PapyrusRT-distribution](https://github.com/kjah
 
 3. You can import the project inside your workspase simply from the ```File``` menue in Eclipse and then select ```import...```, and finally ```Archive File```.
 
-4. Once the MReplayer imported successfuly, you can see the source code of MReplayer, as well as MDebugger and mxgraph projects. below is a brief    description of these projects: 
+4. Once the MRegTest imported successfuly, you can see the source code of MDebugger and mxgraph projects. below is a brief description of these projects: 
     ```
     MDebugger   --> contains the transfromations' scripts that allows to instument the model.
     mxgraph    --> provides webUI for MReplayer and allows the user to controll the replay and inspect values at any given time.
@@ -57,8 +57,10 @@ The transformations scripts are called by other project to perfrom the required 
 2. Make sure "grapheditor" is sent as an argument    
      ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/mxgraph2.png)
    
-3. Open ```http://localhost:8080/javascript/examples/grapheditor/www/index.html``` in your browser to the web interface of MReplayer
+3. Open ```http://localhost:8080/javascript/examples/grapheditor/www/index.html``` in your browser to the web interface of MRegTest
     ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/mxgraph3.png)
+4. The user can see informative messages regrading "Finding a regression" in MRegTest's WebUI
+    ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/regressionFound.png)
 
 ## Step 4 (Run the Instrumented System):
 1. Open the instrumented model in [PapyrusRT-distribution](https://github.com/kjahed/papyrusrt-distribution) and generate the code. 
@@ -90,9 +92,9 @@ The transformations scripts are called by other project to perfrom the required 
     - Right click on ```MRegressinPanel.java``` and run it as java applcation.
     - Then, the following window with two tabs will pop up. 
     - The first tab ```mutants generator``` provides you with the functionality for generating mutants from a model
-     ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/RegressionTesting.png)
+![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/RegressionTesting.png)
     - The second tab ```RegressionTest``` allows you to perform regression testing on either multiple modified models or signel modified model
-     ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/mutantsgenerator.png)
+![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/mutantsgenerator.png)
 
 ## Source code layout
     .
