@@ -1,13 +1,12 @@
-# Welcome to MReplayer Project  
-> Ordering and Replaying of Execution Traces of Distributed Systems in the Context of Model-driven Development
+# Welcome to MRegTest Project  
+> Efficient Replay-based Regression Testing forDistributed Reactive Systems in the Context ofModel-driven Development
 
-MReplayer is a model-level replayer of [Eclipse Papyrus for Real-time](https://eclipse.org/papyrus-rt/) (Papyrus-RT). Papyrus-RT is an Eclipse-based, open-source modelling development environment for UML-RT systems. Recently, an extension of Papyrus-RT has been developed that allows the development of distributed systems with [UML-RT](https://github.com/kjahed/papyrusrt-distribution)
+As software evolves, regression testing techniques are typically used to ensure the new changes are not adversely affecting the existing features. Despite recent advances, regression testing for distributed systems remains challenging and extremely costly. Existing techniques often require running a failing system several time before detecting a regression. As a result, conventional approaches that use re-execution without considering the inherent non-determinism of distributed systems, and providing no (or low) control over execution are inadequate in many ways. In this paper, we present MRegTest, a replay-based regression testing framework in the context of model-driven development to facilitate deterministic replay of traces for detecting regressions while offering sufficient control for the purpose of testing over the execution of the changed system.
 
-Ordering and replaying of execution traces of distributed systems is a challenging problem. State-of-the-art approaches annotate the traces with logical or physical timestamps. However, both kinds of timestamps have their drawbacks, including increased trace size.
-We examine the problem of determining consistent orderings of execution traces in the context of model-driven development of reactive distributed systems, that is, systems whose code has been generated from communicating state machine models. By leveraging key concepts of state machines and existing model analysis and transformation techniques, we propose an approach to collecting and reordering execution traces that does not rely on timestamps. 
-We describe a prototype implementation of our approach and an evaluation.
+MRegTest provides a regression testing approach for distributed UML-RT modles developted via [Eclipse Papyrus for Real-time](https://eclipse.org/papyrus-rt/) (Papyrus-RT). Papyrus-RT is an Eclipse-based, open-source modelling development environment for UML-RT systems. Recently, an extension of Papyrus-RT has been developed that allows the development of distributed systems with [UML-RT](https://github.com/kjahed/papyrusrt-distribution)
 
-A detailed description of the MReplayer can be found in our [MODELS 2020](https://github.com/MajidGitHubRepos/MReplayer/blob/master/MReplayer_Technical_paper.pdf) paper.
+
+A detailed description of the MRegTest can be found in our [MODELS 2021](https://github.com/MajidGitHubRepos/MRegTest/blob/main/MRegTest_technicalPaper.pdf) paper.
 
 ## A Demonstration Video
 > The graphical user interface of our tool is developed on top of the   @drawio which uses mxGraph library. You can find more information in [Drawio in Github](https://github.com/jgraph/drawio).
@@ -74,7 +73,7 @@ The transformations scripts are called by other project to perfrom the required 
 (note: more information can be obtained in [PapyrusRT-distribution](https://github.com/kjahed/papyrusrt-distribution))
     ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/code2.png)
 
-4. Run the system:
+4. Run the distributed system:
     - Each capsule is assigned to a process
     - The top capsule calls the configuration file with ```-c```
      ```
@@ -86,6 +85,14 @@ The transformations scripts are called by other project to perfrom the required 
     ./Debug__TopMain -i tcp://127.0.0.1:5555
      )
      ```
+4. Run the MRegTest Control Panel:
+    - Go to the source code of the project in ```MRegTest\src\main\java\ca\queensu\cs\testing```
+    - Right click on ```MRegressinPanel.java``` and run it as java applcation.
+    - Then, the following window with two tabs will pop up. 
+    - The first tab ```mutants generator``` provides you with the functionality for generating mutants from a model
+     ![alt text](https://github.com/MajidGitHubRepos/MRegTest/src/main/resources/mutantsgenerator.png)
+    - The second tab ```RegressionTest``` allows you to perform regression testing on either multiple modified models or signel modified model
+     ![alt text](https://github.com/MajidGitHubRepos/MRegTest/src/main/resources/RegressionTesting.png)
 
 ## Source code layout
     .
@@ -94,12 +101,11 @@ The transformations scripts are called by other project to perfrom the required 
     |   ├── com.antler4AC                 # All files for performing Action Code analysis  
     |   ├── com.server                    # All files for receiving traces from distributed clients
     |   ├── com.umlrtParser               # All files for performing structural/behavioral static analysis and creating PES
+    |   ├── com.testing                   # All files for performing regression testing for distributed UML-RT models
     ├── JAR                               # All required JAR files that should be added to the project 
     ├── Experiments                   
     │   ├── Original                      # Original Models (including: Replication.zip, ParcelRouter.zip , ...)
-    │   ├── PhysicalTimeStamp             # Models that annotate traces with timestamps (e.g., MDebugger)
-    |   ├── VectorTime                    # Models that annotate traces with Vector-Time
-    │   └── TimeStampFree                 # Models that use no timestamp
+    │   ├── Baseline                      # Models that annotate traces with timestamps
     └── MDebugger                     
     │   ├── DebuggerModel                 # The Debugging Agent which is developed using UML-RT  
     |   ├── Model_instrumentation         # All the developed script for the model transformation 
