@@ -1,0 +1,54 @@
+[160419][Info]:  interpretActionCode when the value is identical to "__CapInstanceName__"
+[120419][Debug]: sending the maplocalHeap to the EvalVisitor.java in order to keep track of all defined variables
+[110419][Debug]: removing isPassedEvent() form capsuleTracker class, it was faulty in self transition, the list should be clean when a stabel state is met
+[060419][Debug]: removing refineListPahts() and handel listPahts.size > 1 via the next event
+[060419][Debug]: in makeMapModelRegionPaths() ::> upper Region must be processed first!
+[060419][Debug]: adding toHistory() in countPathInMapRegionPaths() in order to check transition to history and keep them 
+[050419][Info]:  adding currentState for each region
+[040419][Info]:  ---> Start working on new version of CapsuleTraker
+[230319][Info]:  Using MyConnector class in lookingForTargetCapsuleName
+[050219][Debug]: Event_NOTIME.h fixed
+[050219][Info]:  Event_NOTIME.h added to the realtimelib
+[040219][Debug]: BankATM.uml fixed 
+[040219][Info]:  Counter.uml and ParcelRouter.uml are added and roughly tested
+[020219][Debug]: adding some line of code just to handel Replication.uml adding better log for checkPoints 
+[020219][Debug]: in  lookingForTargetCapsuleName() if srcCapFound or trgCapFound then break the loop
+[010219][Info]:  adding some checkPoint for  the new Replication.uml without capsule replication
+[310119][Info]:  adding some obj null checkPoints for the Replication.uml
+[301218][Info]:  [StableVersion]=====> tesing replay and variable sections for the PingPong model with WebServer
+[281218][Info]:  sending variables to the webserver
+[191218][Info]:  pingCount,Integer,6 [each variable defined in one line]
+[191218][Info]:  update PingPong.uml, removing some extera varibales and adding pongCount
+[071218][Info]:  defining args0 in Controller.java as "view" to show the diagram
+[071218][Info]:  Adding input_output_Files dir to TrackerMaker.java
+[041218][Info]:  Some minor changes in Controller and CapsuleTracker in order to manage ViewEngine for our Bypass feature
+[041218][Info]:  exception handeling added for managing webserver communication
+[031218][Info]:  adding callSendJsonToServer() function in CapsuleTracker.java to handle sending json data process to the webserver   
+[031218][Info]:  Adding sendJsonToServer for every consumable evet in CapsuleTracker.java 
+[031218][Debug]: Init transition no longer to be called initTr, the dependency removed in initChecking() in CapsuleTracker.java
+[301118][Info]:  Sending transition notification to the draw.io server in CapsuleTracker.java
+[291118][Info]:  the outputStreaming method to write vt in output file improved
+[281118][Info]:  Adding sample pingPong json file to input_output_Files directory
+[271118][Info]:  Staring view thread to make a mxGraph for the given model in Controller.java
+[271118][Info]:  default policy check false adding an example for defining policy
+[191118][Debug]: adding check the null value in rowInTableDataMemberLeadsToTargetState
+[091118][Info]:  listPolicies are given to the capsuleTracker to check consumable event with the policy
+[091118][Info]:  processing policy.txt in TrackerMaker
+[081118][Info]:  adding policy.txt into input_output_Files in order to introduce runtime policies
+[081118][Info]:  change outputFiles dir to input_output_Files
+[081118][Info]:  removing timer (in nano) to put in the output.txt
+[071118][Debug]: some changes in lookingForTargetCapsuleName and mappingCapInstanceIdxToCapfullName() in CapsuleTracker.java in order to handel multiple capsule instances
+[051118][Info]:  adding countCapsule() in Controller.java in order to obtain number of capsule
+[051118][Debug]: adding findCapfullNameByCapInstanceIdx(). in Event.h 'this' address is being sent   
+[051118][Debug]: adding capInstIdxMap to map capsuleInstance_capsuleIndex and capsuleFullname in TrackerMaker.java
+[041118][Debug]: senderCapInstanceName condition removed before lookingForTargetCapsuleName(...), because targetCapsuleName maybe different from the capsuleInstance that mentioned in the message
+[031118][Info]:  BankATM.uml added into the resource
+[201018][Debug]: logicalVectorTime is carried by the message content to the target capsule message queue
+[201018][Debug]: Finding the reception when we have port replication in CapsuleTracker by adding senderCapInstanceName to all messages
+[141018][Debug]: adding MAX_TRY_TO_SEND to capsuleTracker and testing with 2Pinger1Ponger.uml model
+[131018][Info]:  adding CausalMsgOrdering.uml
+[131018][Debug]: fix some bugs in obtaining events from TrackerMaker.dataArray[i].getEventQueue()
+[111018][Debug]: removing Semaphore from getEventFromServerQueue because it makes the thread very slow and also using blockingQueue can handle that
+[081018][Debug]: related function to handle choice points added;
+[021018][Info]:  CommGateWay MUST be located beside the model otherwise <Package Import> is empty and code generation is failed!
+[021018][Info]:  getting threads of a processes via [top]; [ps -T -p <pid>]; OR [top -H -p <pid>]

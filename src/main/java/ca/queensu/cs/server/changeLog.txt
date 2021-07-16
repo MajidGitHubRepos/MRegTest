@@ -1,0 +1,11 @@
+[050419][Info]:  keep only StartUp and Transition events in the main Queue in the ByteReader.java
+[120219][Info]:  adding ServerVTOrdering.java and VTOrdering.java to evaluate ordering method based-on vector-time
+[090219][Info]:  check view args0 added to the ServerBypassOrdering.java 
+[050219][Debug]: bug in reading vector for the last char fixed
+[040219][Debug]: bug in reading vector time with size = 1 fixed
+[030219][Info]:  extracting vector time from eventCapsuleName if " " exists in the eventCapsuleName
+[281218][Info]:  sending variables to the webserver
+[041218][Debug]: adding priorityEventCounter to the ServerBypassOrdering in order to preserve initial ordering of the recieved events  
+[041218][Info]:  Adding Bypass features including: ReadBypassOrdering.java and ServerBypassOrdering.java
+[081118][Debug]: generating allDataToString_originalFromMDebugger()
+[081118][Debug]: removing some parameter that are not required from Event.java from allDataToString()

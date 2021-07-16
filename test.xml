@@ -1,0 +1,29 @@
+<mxGraphModel>
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="2" parent="1" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;direction=south;" vertex="1">
+      <mxGeometry as="geometry" height="30.0" width="30.0" x="45.0"/>
+    </mxCell>
+    <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=24;fillColor=#ffffc0;strokeColor=#ff0000;shadow=0;comic=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;" value="v1" vertex="1">
+      <mxGeometry as="geometry" height="60.0" width="120.0" y="80.0"/>
+    </mxCell>
+    <mxCell edge="1" id="4" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;entryX=0.25;entryY=0;labelBackgroundColor=none;endArrow=open;endSize=8;strokeColor=#ff0000;fontFamily=Verdana;fontSize=12;align=left;noEdgeStyle=1;orthogonal=1" target="3" value="e1">
+      <mxGeometry as="geometry" relative="1">
+        <Array as="points">
+          <mxPoint x="60.0" y="42.0"/>
+          <mxPoint x="60.0" y="68.0"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="5" parent="1" style="swimlane;whiteSpace=wrap;html=1;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;" value="Container" vertex="1">
+      <mxGeometry as="geometry" height="200.0" width="930.0" x="95.0" y="495.0"/>
+    </mxCell>
+    <mxCell id="6" parent="5" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;direction=south;" vertex="1">
+      <mxGeometry as="geometry" height="30.0" width="30.0"/>
+    </mxCell>
+    <mxCell id="7" parent="5" style="rounded=1;whiteSpace=wrap;html=1;arcSize=24;fillColor=#ffffc0;strokeColor=#ff0000;shadow=0;comic=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;" value="v4" vertex="1">
+      <mxGeometry as="geometry" height="60.0" width="120.0"/>
+    </mxCell>
+  </root>
+</mxGraphModel>

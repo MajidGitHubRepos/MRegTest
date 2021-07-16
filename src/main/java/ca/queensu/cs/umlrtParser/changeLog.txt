@@ -1,0 +1,25 @@
+[160419][Info]:  adding Replication_1c.uml which works with 1 client
+[140419][Debug]: mapCapAttributes for upper level classes adds into the attribute from sub classes 
+[020419][Debug]: remove the reverse collection code, it dosen't work for -->[x]-->[x]-->
+[020419][Debug]: adding mapModelRegionPaths to handel hierarchy in the Regions 
+[010419][Debug]: adding some helper function and fixing buges in makeMapRegionPaths()
+[010419][Debug]: choice points managed in PES
+[010419][Debug]: updateMapRegionPaths() in PES fixed
+[010419][Debug]: fix some buges in findPathInUpperLowerRegion() and adding findPathInUpperLowerRegion() in PES
+[290319][Debug]: adding updateMapRegionPaths in PES class to update mapRegionPaths with inter-Regional transitions
+[290319][Debug]: adding makeListCompletePaths in PES class
+[280319][Debug]: pathMaker in PES class fixed, SimpleCS_compound.uml added
+[280319][Debug]: findNxtTransitionIDs only retures transition in the same capsule in PES class
+[280319][Debug]: findNxtTransitionIDs only retures transition in the same region in PES class
+[280319][info]:  adding mapIdQname in PES class
+[270319][Debug]: listPaths fixed for loop and for exit/entry states in PES class
+[260319][Info]:  adding some functions into PES class
+[250319][Info]:  adding mapState and mapTranstion to ParserEngine class and adding path and id values in SataData and TransitionData classes 
+[230319][Info]:  adding MyConnector class as a member of CapsuleConn class
+[310119][Info]:  adding Replication.uml to UmlrtParser
+[091118][Info]:  adding 2Pinger1Ponger_threads.uml to UmlrtParser
+[091118][Info]:  adding readListPolicies() in UmlrtUtils.java
+[091018][Info]:  port.isBehavior() added to the port as <portName>::true/false in listCapsuleConn.get(t).addListPortName
+[091018][Debug]: Adding upperCapsuleInstanceName for handling relay ports
+[091018][Debug]: trAdded as a boolean variable check the transition whether or not added previously 
+[021018][Info]:  reading the model.uml from resources/umlrtModels directory

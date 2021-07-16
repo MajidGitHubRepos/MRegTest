@@ -1,0 +1,542 @@
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=5,IE=9" ><![endif]-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grapheditor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<link rel="stylesheet" type="text/css" href="styles/grapheditor.css">
+<script type="text/javascript">
+		// Parses URL parameters. Supported parameters are:
+		// - lang=xy: Specifies the language of the user interface.
+		// - touch=1: Enables a touch-style user interface.
+		// - storage=local: Enables HTML5 local storage.
+		// - chrome=0: Chromeless mode.
+		
+		var urlParams = (function(url)
+		{
+			var result = new Object();
+			var idx = url.lastIndexOf('?');
+	
+			if (idx > 0)
+			{
+				var params = url.substring(idx + 1).split('&');
+				
+				for (var i = 0; i < params.length; i++)
+				{
+					idx = params[i].indexOf('=');
+					
+					if (idx > 0)
+					{
+						result[params[i].substring(0, idx)] = params[i].substring(idx + 1);
+					}
+				}
+			}
+			
+			return result;
+		})(window.location.href);
+	
+		// Default resources are included in grapheditor resources
+		mxLoadResources = true;
+	</script>
+<script type="text/javascript" src="js/Init.js"></script>
+<script type="text/javascript" src="deflate/pako.min.js"></script>
+<script type="text/javascript" src="deflate/base64.js"></script>
+<script type="text/javascript" src="jscolor/jscolor.js"></script>
+<script type="text/javascript" src="sanitizer/sanitizer.min.js"></script>
+<script type="text/javascript" src="../../../src/js/mxClient.js"></script>
+<script type="text/javascript" src="js/EditorUi.js"></script>
+<script type="text/javascript" src="js/Editor.js"></script>
+<script type="text/javascript" src="js/Sidebar.js"></script>
+<script type="text/javascript" src="js/Graph.js"></script>
+<script type="text/javascript" src="js/Format.js"></script>
+<script type="text/javascript" src="js/Shapes.js"></script>
+<script type="text/javascript" src="js/Actions.js"></script>
+<script type="text/javascript" src="js/Menus.js"></script>
+<script type="text/javascript" src="js/Toolbar.js"></script>
+<script type="text/javascript" src="js/Dialogs.js"></script>
+</head>
+<body class="geEditor">
+	<script type="text/javascript">
+		var localModelxml = "";
+		var hashMapCapsulesChildren = {};
+		var hashMapDoneCapsules = {};
+		var hashMapConnectorCapsules = {};
+		var registrationJSON = null;
+		var initialModelAnalysisDone = false;
+		// Extends EditorUi to update I/O action states based on availability of backend
+		(function()
+		{
+			var editorUiInit = EditorUi.prototype.init;
+			
+			EditorUi.prototype.init = function()
+			{
+				//document.body.innerHTML = '<center style="margin-top:10%;"> EditorUi.prototype.init </center>';
+				
+				editorUiInit.apply(this, arguments);
+				this.actions.get('export').setEnabled(false);
+
+				// Updates action states which require a backend
+				if (!Editor.useLocalStorage)
+				{
+					mxUtils.post(OPEN_URL, '', mxUtils.bind(this, function(req)
+					{
+						var enabled = req.getStatus() != 404;
+						this.actions.get('open').setEnabled(enabled || Graph.fileSupport);
+						this.actions.get('import').setEnabled(enabled || Graph.fileSupport);
+						this.actions.get('save').setEnabled(enabled);
+						this.actions.get('saveAs').setEnabled(enabled);
+						this.actions.get('export').setEnabled(enabled);
+					}));
+				}
+			};
+			
+			// Adds required resources (disables loading of fallback properties, this can only
+			// be used if we know that all keys are defined in the language specific file)
+			mxResources.loadDefaultBundle = true;
+			var bundle = mxResources.getDefaultBundle(RESOURCE_BASE, mxLanguage) ||
+				mxResources.getSpecialBundle(RESOURCE_BASE, mxLanguage);
+
+			// Fixes possible asynchronous requests
+			mxUtils.getAll([bundle, STYLE_PATH + '/default.xml'], function(xhr)
+			{
+				var graph = new mxGraph();
+				
+				// Adds bundle text to resources
+				mxResources.parse(xhr[0].getText());
+				
+				// Configures the default graph theme
+				var themes = new Object();
+				themes[Graph.prototype.defaultThemeName] = xhr[1].getDocumentElement(); 
+				
+				// Main
+				var editorUi = new EditorUi(new Editor(urlParams['chrome'] == '0', themes));
+				loadModel(editorUi);
+				console.log(localModelxml);
+				//drawModel(editorUi);
+				var updateInterval = 1000;
+				setInterval(function(){updateModel(editorUi)}, updateInterval); 
+			}, function()
+			{
+				document.body.innerHTML = '<center style="margin-top:10%;">Error loading resource files. Please check browser console.</center>';
+			});
+			
+
+		})();
+		//==================================================================	
+		//==============================================[updateModel]       //Adding button
+		//==================================================================
+	      var updateModel = function (editorUi) {
+	        	
+	    	 // loadChanges(editorUi);
+	    	 //test()
+	  	};
+		//==================================================================	
+		//==============================================[loadModel]
+		//==================================================================
+		function loadModel(editorUi) {
+
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			    	
+			    	drawModel(editorUi,this.responseText);
+			    	//console.log("XML:" + this.responseText);
+			    	localModelxml = this.responseText;
+			    	if (initialModelAnalysisDone == false){
+			    		
+			    		initialModelAnalysis(editorUi);
+			    	}
+			    }
+			  };
+			  xhttp.open("GET", "./resources/localModel.xml", true);
+			  //xhttp.responseType = "document";
+			  xhttp.send();
+			};
+		//==================================================================	
+		//==============================================[drawModel]
+		//==================================================================	
+		function drawModel(editorUi,xml)
+		{
+			//var xmlDoc = xml.responseXML;
+			//document.write(String(xmlDoc));
+			//document.write(String(editorUi));
+
+			//var xml = '<mxGraphModel dx="1361" dy="730" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0"><root><mxCell id="0"/><mxCell id="1" parent="0"/><mxCell id="2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1"><mxGeometry x="390" y="340" width="80" height="80" as="geometry"/></mxCell></root></mxGraphModel>';
+			
+			editorUi.editor.setGraphXml(mxUtils.parseXml(xml).documentElement);
+			
+			
+		};
+		//==================================================================	
+		//==============================================[modelRegistration]
+		//==================================================================	
+		function modelRegistration(callback) {
+
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			    	var jsonArr = JSON.parse(this.responseText);
+			    	registrationJSON = jsonArr;
+			    	callback();
+			    	//console.log(registrationJSON);
+			    }
+			  };
+				xhttp.open("GET", "./resources/registration.json", true);
+			  //xhttp.responseType = "document";
+			  xhttp.send();
+		};
+		//==================================================================	
+		//==============================================[loadChanges]
+		//==================================================================	
+		function loadChanges(editorUi) {
+
+			  var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			    	var jsonArr = JSON.parse(this.responseText);
+			    	registrationJSON = jsonArr;
+			    	console.log("registration: "+registrationJSON);
+			    	test();
+			    	//if (initialModelAnalysisDone == false)
+			    	//	initialModelAnalysis(editorUi);
+			    	modifyModel(editorUi,jsonArr);
+			    }
+			  };
+				xhttp.open("GET", "./resources/registration.json", true);
+			  //xhttp.responseType = "document";
+			  xhttp.send();
+		};
+		//==================================================================	
+		//==============================================[servletTest]
+		//==================================================================	
+		function test() {
+			var xhttp = new XMLHttpRequest();
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			      //document.getElementById("demo").innerHTML = this.responseText;
+			      console.log(this.responseText);
+			    }
+			  };
+			  xhttp.open("POST", "/model", true);
+			  xhttp.send();
+			         
+			};
+			
+		//==================================================================	
+		//==============================================[findParentName]
+		//==================================================================	
+
+		function findParentName(capsuleName,trName) { 
+			//========================================================== [XML]
+			if (localModelxml != null && localModelxml.length > 0) {
+				var doc = mxUtils.parseXml(localModelxml);
+
+				if (doc != null && doc.documentElement != null) {
+					var nodes = doc.documentElement
+							.getElementsByTagName('mxCell');
+
+					//console.log(nodes[5].attributes.value.textContent); // returns a string contains "Playing" in pingPong model!
+					if (nodes != null && nodes.length > 0) {
+						//model.beginUpdate();
+
+						try {
+							//Extract capusleID
+							var capusleID ="";
+							for (var j = 0; j < nodes.length; j++) {
+								if (nodes[j].attributes.value != null) {
+									var value = nodes[j].getAttribute('value').toLowerCase();
+									if (value.includes(capsuleName.toLowerCase())){
+										capusleID = nodes[j].getAttribute('id');
+										break;
+									}
+								}
+							}
+							
+							
+							for (var j = 0; j < nodes.length; j++) {
+								if (nodes[j].attributes.value != null) {
+									var value = nodes[j].getAttribute('value').toLowerCase();
+									//console.log(nodes[j])
+									//console.log("value: "+ value)
+										//console.log("============================> trName:"+ trName.toLowerCase())
+										//console.log("============================> value: "+ value)
+
+									var lcTrName = trName.toLowerCase().replace(/\s/g, '').replace(/\"/g, '');
+									if (value.includes(lcTrName)){
+										var trID = nodes[j].getAttribute('id');
+										var parentID = nodes[j].attributes.parent.value;
+										
+										if (parentID === capusleID){
+											return capsuleName
+										}
+									}
+								}
+							}
+							
+							//tr in backup, so we need to make capsuleName.compusiteStateID (e.g. server1.backup)
+							result = capsuleName;
+
+							for (var j = 0; j < nodes.length; j++) {
+								if (nodes[j].attributes.value != null) {
+									var value = nodes[j].getAttribute('value').toLowerCase();
+									if (value.includes(lcTrName)){
+										var trID = nodes[j].getAttribute('id');
+										var parentID = nodes[j].attributes.parent.value;
+
+										//check whether parent of parent comply with capusleID
+										for (var jj = 0; jj < nodes.length; jj++) {
+											if (nodes[jj].attributes.value != null) {
+												if (nodes[jj].getAttribute('id') === parentID){
+													var parentParentID = nodes[jj].attributes.parent.value;
+
+													if (parentParentID === capusleID){
+														//console.log("============================> parentParentID:"+ parentParentID)
+														//console.log("============================> parentID:"+ parentID)
+
+														result = result + "." + parentID; //capsuleName.compusiteStateID
+														return result;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+										
+							}finally {
+								//model.endUpdate();
+							}
+					}
+				}
+			
+			}
+		}
+		//==================================================================	
+		//==============================================[initialModelAnalysis]
+		//==================================================================	
+
+		function initialModelAnalysis(editorUi) {
+			modelRegistration(function(){ 
+			    //alert('Finished !');
+   
+			console.log(registrationJSON);
+			if (registrationJSON !== null) {
+				var capsuleInfo = {};
+				var capsuleName = "";
+				var regionID = "";
+				var listChildrenID = [];
+				var listConnectorID = [];
+				var lastIDs = [];
+				var lastCells = [];
+				
+				//looking for capsules' children !
+				for (var i = 0; i < registrationJSON.listCapsulesInstances.length; i++) {
+					capsuleName = "";
+					if (registrationJSON.listCapsulesInstances[i].name.includes("__")){	
+						var lastIndex = registrationJSON.listCapsulesInstances[i].name.indexOf('__');
+						capsuleName = registrationJSON.listCapsulesInstances[i].name.substr(lastIndex+2);
+					}else{
+						capsuleName = registrationJSON.listCapsulesInstances[i].name;
+					}
+					
+					for (var r = 0; r < registrationJSON.listCapsulesInstances[i].regions.length; r++) {
+						regionID = "";
+						var regionName = registrationJSON.listCapsulesInstances[i].regions[r].name;
+						var listPaths =[];
+						var samplePath0Name = "";
+						listPaths = registrationJSON.listCapsulesInstances[i].regions[r].listPaths;
+						if (listPaths[0] != null){
+							samplePath0Name = JSON.stringify(listPaths[0].Path0[0].name);
+							var regionParentName = findParentName(capsuleName,samplePath0Name);
+							if ((capsuleName != regionParentName) && (!regionParentName.includes(".")))
+								capsuleName = capsuleName+"."+regionParentName;
+							else if (regionParentName.includes(".")){
+								//capsuleName.compusiteStateID
+								var idx = regionParentName.indexOf('.');
+								regionID = regionParentName.substr(idx+1);
+							}
+								
+						
+							//console.log("regionName: " + regionName); console.log("samplePath0Name: " + samplePath0Name);
+						}
+					//console.log("capsuleName: "+capsuleName);
+
+					
+					//console.log("CapName:"+capsuleName);
+					//capsuleName = "backup";
+					listChildrenID = [];
+					
+					//console.log(capsuleName)
+					//========================================================== [XML]
+					if (regionID === "" && localModelxml !== null && localModelxml.length > 0) {
+						var doc = mxUtils.parseXml(localModelxml);
+
+						if (doc != null && doc.documentElement != null) {
+							var nodes = doc.documentElement
+									.getElementsByTagName('mxCell');
+	
+							//console.log(nodes[5].attributes.value.textContent); // returns a string contains "Playing" in pingPong model!
+							if (nodes != null && nodes.length > 0) {
+								//model.beginUpdate();
+
+								try {
+									for (var j = 0; j < nodes.length; j++) {
+										
+										
+										if ((nodes[j].attributes.value == null) && (nodes[j].attributes.source != null) && (nodes[j].attributes.target != null)) {
+											listConnectorID = [];
+											 
+											console.log("id: "+nodes[j].attributes.id.value+", src: " + nodes[j].attributes.source.value +", trg: " + nodes[j].attributes.target.value )
+										 	var connInfo = ["connector",nodes[j].attributes.id.value];
+										 	var srcTrgInfo = {};
+										 
+											var srcID = nodes[j].attributes.source.value;
+										 	var trgID = nodes[j].attributes.target.value;
+										 
+										 	srcTrgInfo = [srcID,trgID];
+										 	listConnectorID.push(srcTrgInfo);
+										 
+										 	if (hashMapConnectorCapsules[connInfo] === undefined )
+										 		hashMapConnectorCapsules[connInfo] = listConnectorID;
+										
+										}
+										
+										if (nodes[j].attributes.value != null) {
+											var value = nodes[j].getAttribute('value').toLowerCase();
+											//console.log(nodes)
+											//console.log("value: "+ value)
+
+											if (value.includes(capsuleName)){
+												var capsuleID = nodes[j].getAttribute('id');
+												capsuleInfo = [capsuleName,capsuleID];
+											
+												console.log("capsuleName: " + capsuleName+", capsuleID: " + capsuleID +", nodes[j]: " +nodes[j])
+												//console.log(nodes)
+												var itemInfo = {};
+												for (var k = 0; k < nodes.length; k++) {
+													if (nodes[k].attributes.parent != null){
+														if ((nodes[k].attributes.value != null)&& (nodes[k].attributes.parent.value == capsuleID)){
+															itemInfo = [nodes[k].attributes.value.value,nodes[k].id];
+															listChildrenID.push(itemInfo);
+															console.log(itemInfo)
+
+														}
+													}
+												}
+												
+												if ((hashMapCapsulesChildren[capsuleInfo] === undefined) && (hashMapDoneCapsules[capsuleName] === undefined)){
+													hashMapCapsulesChildren[capsuleInfo] = listChildrenID;
+													hashMapDoneCapsules [capsuleName]  = "Done";
+												}
+												
+											}
+											
+												//listChildrenID.push(nodes[j].id);
+												
+												//editorUi.editor.makeRed(id,'green');
+										}
+									}
+									
+									}finally {
+										//model.endUpdate();
+									}
+									//console.log("capsuleInfo: "+capsuleInfo)
+									//console.log("BFR:: hashMapCapsulesChildren[capsuleInfo] : "+hashMapCapsulesChildren[capsuleInfo])
+									
+									//console.log("AFT:: hashMapCapsulesChildren[capsuleInfo] : "+hashMapCapsulesChildren[capsuleInfo])
+
+									console.log(hashMapCapsulesChildren)
+									console.log(hashMapConnectorCapsules)
+							}
+						}
+					}else if (regionID !== "" && localModelxml !== null && localModelxml.length > 0){
+						
+						var doc = mxUtils.parseXml(localModelxml);
+						
+						if (doc != null && doc.documentElement != null) {
+							var nodes = doc.documentElement
+									.getElementsByTagName('mxCell');
+	
+							//console.log(nodes[5].attributes.value.textContent); // returns a string contains "Playing" in pingPong model!
+							if (nodes != null && nodes.length > 0) {
+								//model.beginUpdate();
+
+								try {
+									
+									var parentName = "";
+									for (var j = 0; j < nodes.length; j++) {
+										if (nodes[j].attributes.value != null) {
+											if (nodes[j].getAttribute('id') === regionID){
+												var fullParentName = nodes[j].attributes.value.value;
+												var res = [];
+												res = fullParentName.split("</font>");
+												var lastIndex = res[0].lastIndexOf('>');
+												parentName = res[0].substr(lastIndex+1);
+											}
+										}	
+									}
+									
+									
+									
+									
+									
+									var itemInfo = {};
+									for (var j = 0; j < nodes.length; j++) {
+										if (nodes[j].attributes.value != null && nodes[j].attributes.parent.value === regionID) {
+											itemInfo = [nodes[j].attributes.value.value,nodes[j].id];
+											listChildrenID.push(itemInfo);
+										}
+									}
+									if (hashMapCapsulesChildren[parentName] === undefined ){
+										capsuleInfo = [capsuleName+"."+parentName,regionID];
+										hashMapCapsulesChildren[capsuleInfo] = listChildrenID;
+									}
+											
+						
+										
+									
+									
+									}finally {
+										//model.endUpdate();
+									}
+									
+
+									console.log(hashMapCapsulesChildren)
+							}
+						}
+						
+					}
+					
+					
+					//for (j = 0; j < registrationJSON.listCapsulesInstances[i].stateMachine.length; j++) {
+					//}
+				}
+				}
+				initialModelAnalysisDone = true;
+				editorUi.editor.setModelAnalysis(hashMapCapsulesChildren,hashMapConnectorCapsules);
+				editorUi.editor.setLastIDs(lastIDs);
+				editorUi.editor.setLastCells(lastCells);
+			}
+			});
+		}
+		//==================================================================	
+		//==============================================[modifyModel]
+		//==================================================================	
+		function modifyModel(editorUi, json) {
+			//console.log("NewChanges:" + json);
+			//editorUi.editor.colorItem(17,'green');
+
+
+			//}
+			//editorUi.editor.setGraphXml(mxUtils.parseXml(xml).documentElement);
+
+		};
+	</script>
+	<p id="demo"></p>
+</body>
+</html>
