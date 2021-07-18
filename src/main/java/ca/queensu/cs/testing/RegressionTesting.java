@@ -38,7 +38,14 @@ public class RegressionTesting {
 	public static Map<String, String> regTestMapQnameId     = new HashMap<String, String>();
 	public static Map<String, String> mapIdQname     = new HashMap<String, String>();
 	public static Map<String, List<Map<String, String>>> regTestMapModelRegionPaths = new HashMap<String, List<Map<String, String>>>();
-
+	
+	public List<String> regressionTestingSelection = new ArrayList<String>();
+	public List<String> regressions = new ArrayList<String>();
+	public List<String> regressionTestingRCT = new ArrayList<String>();
+	public List<String> regressionTestingCritVar = new ArrayList<String>();
+	public List<String> regressionTestingExe = new ArrayList<String>();
+	
+	
 	public RegressionTesting() {
 		selectedModelPath = "";
 		selectedJsonPath = "";
@@ -192,46 +199,84 @@ public class RegressionTesting {
 			}
 		}
 		//==================================================================	
-		//==============================================[regTestExtractLowerRegion]
-		//==================================================================	
-		public String regTestExtractLowerRegion(String id) {
-			String lowerRegion = "";
-			String instanceName = "";
+		//==============================================[executionSelection]
+		//==================================================================
 
-			String stateName = ParserEngine.mapStateData.get(id).getPseudostate().getNamespace().getName();
-			String capInstance = ParserEngine.mapStateData.get(id).getCapsuleInstanceName();
-			String nameSpace = "";
-
-			for (StateData sd :  ParserEngine.listStateData){
-				if((sd.getStateName()!=null) && (sd.getStateName().contentEquals(stateName)) && (sd.getCapsuleInstanceName().contentEquals(capInstance))) {
-					nameSpace = sd.getState().getQualifiedName()+"::";
-					break;
-				}
-			}
-
-			if ( (nameSpace != null) && (stateName != null)) {
-				for (StateData sd :  ParserEngine.listStateData){
-
-					if((sd.getState()!=null) && (sd.getState().getQualifiedName().contains(nameSpace))) {
-						instanceName = sd.getCapsuleInstanceName();
-						String [] qNameSplit = sd.getState().getQualifiedName().split("\\::");
-
-						for (String str : qNameSplit) {
-
-							if(str.contains("Region")) {
-								if (lowerRegion.isEmpty())
-									lowerRegion = str;
+		public List<String> executionSelection(List<String> RCT, List<String> CritVar, List<String> Exe ) {
+			 List<String> messages = new ArrayList<String>();
+			int i = 0;
+			for (String exe : Exe) {
+			InitGama();
+			String inTraces = exe;
+			messages.add(exe);
+			while(!inTraces.isEmpty()) {
+				String msg = messages.get(i++);
+				rcStep = getRCStep(msg,rcSteps,gama);
+				for (Entry<String, List<Map<String, String>>> entry : regTestMapModelRegionPaths.entrySet()) {
+					int count_ = 0;
+					Map<String, String> sameLeveRegions = new HashMap<String, String>();
+					List<Map<String, String>> currentRegionList = new ArrayList<Map<String, String>>();
+					do {
+						sameLeveRegions = new HashMap<String, String>();
+						for(Map<String, String> regionState : entry.getValue()) {
+							if (StringUtils.countOccurrencesOf(regionState.keySet().toString().replaceAll("\\[", "").replaceAll("\\]",""), "_")==count_) {
+								if (sameLeveRegions.isEmpty())
+									sameLeveRegions= regionState;
 								else
-									lowerRegion = lowerRegion + "_" +str;
-
+									sameLeveRegions.putAll(regionState); 
 							}
 						}
-						break;
+						if (!sameLeveRegions.isEmpty())
+							currentRegionList.add(sameLeveRegions);
+						count_++;
+					}while(!sameLeveRegions.isEmpty());
+					if (!currentRegionList.isEmpty()) {				
+						regTestMapModelRegionPaths.put(entry.getKey(), currentRegionList);
 					}
 				}
-				return instanceName+"::"+lowerRegion; 
 			}
-			return "";
+			return regressionTestingRCT;
+		}
+		
+		//==================================================================	
+		//==============================================[regressionDetection]
+		//==================================================================	
+		public List<String> regresssionDetection(List<String> RTC1, List<String> RTC2, List<String> inTraces, List<String> critVar, String path, int count) {
+					
+			// Step#1:Reorder & replay on the modified capsule C′
+			for (Map.Entry<String, List<String>> entry : regtestMapRegionPaths.entrySet()) {
+				String region = entry.getKey();
+				for(String str : entry.getValue()) {
+					if(str.contains(path)) {
+						if (str.contains(",")) {
+							String [] strSplit = str.split("\\,");
+							if (!ParserEngine.mapTransitionData.get(strSplit[strSplit.length-1]).getIsInit() && !regTestToHistory(path,pathRegion)) //path ends at initTr
+								count++;
+						}else
+							count++;
+					}
+				}
+			}
+			// Step#2:Replay on the original capsule C
+			do {
+				sameLeveRegions = new HashMap<String, String>();
+
+				for(Map<String, String> regionState : entry.getValue()) {
+					if (StringUtils.countOccurrencesOf(regionState.keySet().toString().replaceAll("\\[", "").replaceAll("\\]",""), "_")==count_) {
+						if (sameLeveRegions.isEmpty())
+							sameLeveRegions= regionState;
+						else
+							sameLeveRegions.putAll(regionState); 
+					}
+				}
+				if (!sameLeveRegions.isEmpty())
+					currentRegionList.add(sameLeveRegions);
+				count_++;
+			}while(!sameLeveRegions.isEmpty());
+			if (!currentRegionList.isEmpty()) {				
+				regTestMapModelRegionPaths.put(entry.getKey(), currentRegionList);
+			}
+			return regressions;
 		}
 	//==================================================================	
 	//==============================================[regTestToHistory]
