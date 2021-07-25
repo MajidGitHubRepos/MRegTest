@@ -31,9 +31,10 @@ In your Eclipse just right click on the imported Java Project and click Configur
 3. Right click on MRegressionPanel.java and go to "Run as" and run it as java application. 
 4. You should see the MRgeTest Control Panel
     - The first tab ```mutants generator``` provides you with the functionality for generating mutants from a model
-    ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/RegressionTesting.png)
+   ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/mutantsgenerator.png)
     - The second tab ```RegressionTest``` allows you to perform regression testing on either multiple modified models or signel modified model
-    ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/mutantsgenerator.png)
+    
+     ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/RegressionTesting.png)
 
 
 ## Step 5 (Testing the functionality of our proposed method):
