@@ -10,86 +10,38 @@ A detailed description of the MRegTest can be found in our [MODELS 2021](https:/
 
 
 # Usage
-Please note that we assume that [PapyrusRT-distribution](https://github.com/kjahed/papyrusrt-distribution) and [Eclipse Modeling Framework](https://www.eclipse.org/modeling/emf/) are avaiable on your system.
-## Step 1 (Run PapyrusRT-distribution and Import the Project):
 
-1. Open a terminal and execute  ```/home/papyrus-rt-devtest-latest/Papyrus-RT/eclipse```. Ubuntu users can run the Eclipse from the launcher menu at the left side of the desktop.
+## Step 1 (Download Eclipse development environment):
+Please download [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/packages/release/2021-06/r/eclipse-ide-java-developers)
+We have tested using the Version and Build id in below: 
+- Version: 2021-06 (4.20.0)
+- Build id: 20210612-2011
 
-2. The Eclipse launcher will be shown, use the default workspace (i.e., /home/workspace) and press the Launch.
+## Step 2 (Import the project):
+Please open Eclipse and follow the direction in below to import the porject in your workstation.  
+File > Import > Archaive File 
+Then use the Brows button to select the archive file of the project.
 
-3. You can import the project inside your workspase simply from the ```File``` menue in Eclipse and then select ```import...```, and finally ```Archive File```.
+## Step 3 (Convert to a Maven Project):
+In your Eclipse just right click on the imported Java Project and click Configure and you should see "Convert to Maven Project" option.
 
-4. Once the MRegTest imported successfuly, you can see the source code of MDebugger and mxgraph projects. below is a brief description of these projects: 
-    ```
-    MDebugger   --> contains the transfromations' scripts that allows to instument the model.
-    mxgraph    --> provides webUI for MReplayer and allows the user to controll the replay and inspect values at any given time.
-    ```
-## Step 2 (Run the Model Instrumention): 
-The transformations scripts are called by other project to perfrom the required transformation, however it is possible to modify and execute this script in standalone mode. Execute the trasformation script inside the Eclipse IDE, follow the below instruction:
-
-1. Open ```MDebugger/StateChartDebugInstrument/EOLScripts```, then righ click on the "UMLRTInstrumentv0.1.eol" and select Run as -> RunConfiguration
-    ![alt text](https://github.com/moji1/MDebugger/blob/master/StateChartDebugInstrument/Screenshots/Step1.png)
-    
-2. Create a new configuration under EOL program and make sure the source is set to "UMLRTInstrumentv0.1.eol"
-    ![alt text](https://github.com/moji1/MDebugger/blob/master/StateChartDebugInstrument/Screenshots/Step2.png)
-    
-3. Select a Models tab in the dialog and add two model
-    ![alt text](https://github.com/moji1/MDebugger/blob/master/StateChartDebugInstrument/Screenshots/Step3.png)
-    
-4. The DebugginAgent model always should have the following configuraion
-    ![alt text](https://github.com/moji1/MDebugger/blob/master/StateChartDebugInstrument/Screenshots/Step4.png)
-
-5. Configure the UMLRTModel to the model that you want to be transformed for debugging
-    ![alt text](https://github.com/moji1/MDebugger/blob/master/StateChartDebugInstrument/Screenshots/Step5.png)
-
-6. Finally, press the run and see the result in the eclipse console and result model. Now the software is ready to receive traces from clients at TCP port 8001.
-
-## Step 3 (Run the Webserver): 
-1. Open ```mxgraph/java```, then righ click on the "build.xml" file and select Run as -> Ant Build
-    ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/mxgraph1.png)
-
-2. Make sure "grapheditor" is sent as an argument    
-     ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/mxgraph2.png)
-   
-3. Open ```http://localhost:8080/javascript/examples/grapheditor/www/index.html``` in your browser to the web interface of MRegTest
-    ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/mxgraph3.png)
-4. The user can see informative messages regrading "Finding a regression" in MRegTest's WebUI
-    ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/regressionFound.png)
-
-## Step 4 (Run the Instrumented System):
-1. Open the instrumented model in [PapyrusRT-distribution](https://github.com/kjahed/papyrusrt-distribution) and generate the code. 
-    ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/code1.png)
-2. Create a "build" directory in ```~/workspace/[ProjectName]/src/``` and run the following commands:
-    ```
-    $ cd build
-    $ cmake ..
-    $ make
-    ```
-3. Create a configuration file for distribution in json format (e.g., map.json)
-(note: more information can be obtained in [PapyrusRT-distribution](https://github.com/kjahed/papyrusrt-distribution))
-    ![alt text](https://github.com/MajidGitHubRepos/MReplayer/blob/master/src/main/resources/Screenshots/code2.png)
-
-4. Run the distributed system:
-    - Each capsule is assigned to a process
-    - The top capsule calls the configuration file with ```-c```
-     ```
-     (e.g.,
-    ./Debug__TopMain -i tcp://127.0.0.1:1111 -c map.json
-    ./Debug__TopMain -i tcp://127.0.0.1:2222
-    ./Debug__TopMain -i tcp://127.0.0.1:3333
-    ./Debug__TopMain -i tcp://127.0.0.1:4444
-    ./Debug__TopMain -i tcp://127.0.0.1:5555
-     )
-     ```
-4. Run the MRegTest Control Panel:
-    - Go to the source code of the project in ```MRegTest\src\main\java\ca\queensu\cs\testing```
-    - Right click on ```MRegressinPanel.java``` and run it as java applcation.
-    - Then, the following window with two tabs will pop up. 
+## Step 4 (Run MRegTest's Control Panel):
+1. Open the imported project and find the directory src/main/java. 
+2. Inside this directory you will see the package ca.queensu.cs.outlook. Open this package.
+3. Right click on MRegressionPanel.java and go to "Run as" and run it as java application. 
+4. You should see the MRgeTest Control Panel
     - The first tab ```mutants generator``` provides you with the functionality for generating mutants from a model
     ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/RegressionTesting.png)
     - The second tab ```RegressionTest``` allows you to perform regression testing on either multiple modified models or signel modified model
-   
     ![alt text](https://github.com/MajidGitHubRepos/MRegTest/blob/main/src/main/resources/mutantsgenerator.png)
+
+
+## Step 5 (Testing the functionality of our proposed method):
+We have tested the system using the UML-RT model: BankATM.uml and also we use the 
+For pefroming the test you will need to specify a file as "Collected Traces File". You can use already collected traces file in 
+
+[<p style="text-align:center;"><img src="https://i.ibb.co/nbM8rL6/You-Tube-icon.png" width="193" height="130"></p>](https://youtu.be/1PXjmKgadQI)
+
 
 ## Source code layout
     .
