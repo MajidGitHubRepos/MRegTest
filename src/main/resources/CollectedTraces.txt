@@ -1,0 +1,194 @@
+7f124b9e4000-7f124b9e5000 rw-p 00002000 08:01 20189855                   /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f124b9e5000-7f124bbe5000 rw-p 00000000 00:00 0 
+7f124bc00000-7f124be00000 rw-p 00000000 00:00 0 
+7f124be00000-7f124c000000 rw-p 00000000 00:00 0 
+7f124c000000-7f124c885000 rw-p 00000000 00:00 0 
+7f124c885000-7f1250000000 ---p 00000000 00:00 0 
+7f1250000000-7f1250021000 rw-p 00000000 00:00 0 
+7f1250021000-7f1254000000 ---p 00000000 00:00 0 
+7f1254000000-7f1254021000 rw-p 00000000 00:00 0 
+7f1254021000-7f1258000000 ---p 00000000 00:00 0 
+7f1258000000-7f1258031000 rw-p 00000000 00:00 0 
+7f1258031000-7f125c000000 ---p 00000000 00:00 0 
+7f125c000000-7f125c6b7000 rw-p 00000000 00:00 0 
+7f125c6b7000-7f1260000000 ---p 00000000 00:00 0 
+7f1260000000-7f1260021000 rw-p 00000000 00:00 0 
+7f1260021000-7f1264000000 ---p 00000000 00:00 0 
+7f1264000000-7f12653ee000 rw-p 00000000 00:00 0 
+7f12653ee000-7f1268000000 ---p 00000000 00:00 0 
+7f1268000000-7f1268ddc000 rw-p 00000000 00:00 0 
+7f1268ddc000-7f126c000000 ---p 00000000 00:00 0 
+7f126c000000-7f126c021000 rw-p 00000000 00:00 0 
+7f126c021000-7f1270000000 ---p 00000000 00:00 0 
+7f12700dd000-7f12700e0000 ---p 00000000 00:00 0 
+7f12700e0000-7f12703de000 rw-p 00000000 00:00 0 
+7f12703de000-7f12703e1000 ---p 00000000 00:00 0 
+7f12703e1000-7f12704df000 rw-p 00000000 00:00 0 
+7f12704df000-7f12704e2000 ---p 00000000 00:00 0 
+7f12704e2000-7f12705e0000 rw-p 00000000 00:00 0 
+7f12705e0000-7f12705e3000 ---p 00000000 00:00 0 
+7f12705e3000-7f12706e1000 rw-p 00000000 00:00 0 
+7f12706e1000-7f12706e4000 ---p 00000000 00:00 0 
+7f12706e4000-7f12737e3000 rw-p 00000000 00:00 0 
+7f12737e3000-7f12737f9000 r-xp 00000000 08:01 26740998                   /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f12737f9000-7f12739f9000 ---p 00016000 08:01 26740998                   /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f12739f9000-7f12739fa000 rw-p 00016000 08:01 26740998                   /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f12739fa000-7f12739fb000 ---p 00000000 00:00 0 
+7f12739fb000-7f1273afb000 rw-p 00000000 00:00 0 
+7f1273afb000-7f1273afe000 ---p 00000000 00:00 0 
+7f1273afe000-7f1273bfc000 rw-p 00000000 00:00 0 
+7f1273bfc000-7f1273bff000 ---p 00000000 00:00 0 
+7f1273bff000-7f1273cfd000 rw-p 00000000 00:00 0 
+7f1273cfd000-7f1273d00000 ---p 00000000 00:00 0 
+7f1273d00000-7f1273dfe000 rw-p 00000000 00:00 0 
+7f1273dfe000-7f1273e01000 ---p 00000000 00:00 0 
+7f1273e01000-7f1273eff000 rw-p 00000000 00:00 0 
+7f1273eff000-7f1273f02000 ---p 00000000 00:00 0 
+7f1273f02000-7f1274000000 rw-p 00000000 00:00 0 
+7f1274000000-7f1274021000 rw-p 00000000 00:00 0 
+7f1274021000-7f1278000000 ---p 00000000 00:00 0 
+7f1278000000-7f1278021000 rw-p 00000000 00:00 0 
+7f1278021000-7f127c000000 ---p 00000000 00:00 0 
+7f127c000000-7f127c021000 rw-p 00000000 00:00 0 
+7f127c021000-7f1280000000 ---p 00000000 00:00 0 
+7f1280000000-7f1280293000 rw-p 00000000 00:00 0 
+7f1280293000-7f1284000000 ---p 00000000 00:00 0 
+7f1284000000-7f1284021000 rw-p 00000000 00:00 0 
+7f1284021000-7f1288000000 ---p 00000000 00:00 0 
+7f1288000000-7f1288021000 rw-p 00000000 00:00 0 
+7f1288021000-7f128c000000 ---p 00000000 00:00 0 
+7f128c000000-7f128c021000 rw-p 00000000 00:00 0 
+7f128c021000-7f1290000000 ---p 00000000 00:00 0 
+Event: 143.668 Thread 0x00007f12a40c0000 2588 % !   3       ca.queensu.cs.server.ByteReader::run @ 33 (63 bytes)
+Event: 5.379 Thread 0x00007f12a40ff800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f129513c10c method=ca.queensu.cs.controller.Controller$RunnableImpl.run()V @ 26
+Event: 5.382 Thread 0x00007f12a40ff800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f12956ed468 method=java.io.PrintStream.write(Ljava/lang/String;)V @ 43
+  0x00007f12a40c0000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=19524, stack(0x00007f1273bfc000,0x00007f1273cfd000)]
+  0x00007f12a40be800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=19523, stack(0x00007f1273cfd000,0x00007f1273dfe000)]
+  0x00007f12a40bb800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=19522, stack(0x00007f1273dfe000,0x00007f1273eff000)]
+  0x00007f12a40ba000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19521, stack(0x00007f1273eff000,0x00007f1274000000)]
+  0x00007f12a4086800 JavaThread "Finalizer" daemon [_thread_blocked, id=19520, stack(0x00007f1290a58000,0x00007f1290b59000)]
+  0x00007f12a4084000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19519, stack(0x00007f1290b59000,0x00007f1290c5a000)]
+  Event: 4.099 Thread 0x00007f12a41bb800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000d70d9cd0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/methodHandles.cpp, line 1167]
+Event: 4.671 Thread 0x00007f12a41bb800 Implicit null exception at 0x00007f1295363335 to 0x00007f1295363561
+Event: 4.726 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d730af48) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 4.757 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d7341938) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 5.146 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d785a218) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 5.157 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d7870bc0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 5.189 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d7896868) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 5.190 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d78ad1f0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 5.221 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d78d2f08) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+Event: 5.222 Thread 0x00007f12a41bb800 Exception <a 'java/lang/ClassNotFoundException': sun/net/www/protocol/pathmap/Handler> (0x00000000d78e9930) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 210]
+  0x00007f1250001800 JavaThread "Thread-0" [_thread_blocked, id=19580, stack(0x00007f124b2bf000,0x00007f124b3c0000)]
+  0x00007f124c330000 JavaThread "Thread-10" [_thread_blocked, id=19540, stack(0x00007f12706e1000,0x00007f12707e2000)]
+  0x00007f124c32f000 JavaThread "Thread-9" [_thread_blocked, id=19539, stack(0x00007f12705e0000,0x00007f12706e1000)]
+  0x00007f1258005800 JavaThread "waiter" [_thread_blocked, id=19533, stack(0x00007f12700dd000,0x00007f12701de000)]
+  0x00007f124c035000 JavaThread "EMF Reference Cleaner" daemon [_thread_blocked, id=19531, stack(0x00007f12703de000,0x00007f12704df000)]
+  0x00007f12a400c800 JavaThread "DestroyJavaVM" [_thread_blocked, id=19510, stack(0x00007f12ad6b3000,0x00007f12ad7b4000)]
+  0x00007f12a41be000 JavaThread "Thread-4" [_thread_blocked, id=19530, stack(0x00007f12704df000,0x00007f12705e0000)]
+  0x00007f12a40cb000 JavaThread "Service Thread" daemon [_thread_blocked, id=19526, stack(0x00007f1273afb000,0x00007f1273bfc000)]
+  0x00007f12a40c0000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=19524, stack(0x00007f1273bfc000,0x00007f1273cfd000)]
+  0x00007f12a40be800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=19523, stack(0x00007f1273cfd000,0x00007f1273dfe000)]
+  0x00007f12a40bb800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=19522, stack(0x00007f1273dfe000,0x00007f1273eff000)]
+  0x00007f12a40ba000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19521, stack(0x00007f1273eff000,0x00007f1274000000)]
+  0x00007f12a4086800 JavaThread "Finalizer" daemon [_thread_blocked, id=19520, stack(0x00007f1290a58000,0x00007f1290b59000)]
+  0x00007f12a4084000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19519, stack(0x00007f1290b59000,0x00007f1290c5a000)]
+  0x00007f12a41be000 JavaThread "Thread-4" [_thread_blocked, id=19530, stack(0x00007f12704df000,0x00007f12705e0000)]
+  0x00007f12a40cb000 JavaThread "Service Thread" daemon [_thread_blocked, id=19526, stack(0x00007f1273afb000,0x00007f1273bfc000)]
+Event: 5.390 Thread 0x00007f12a40ff800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1295725c08 method=sun.net.www.ParseUtil.encodePath(Ljava/lang/String;Z)Ljava/lang/String; @ 109
+Event: 5.492 Thread 0x00007f1258007000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f12956231a4 method=java.util.jar.Manifest$FastInputStream.peek()B @ 8
+Event: 111.981 Thread 0x00007f1258005800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f12958eec90 method=java.util.AbstractCollection.isEmpty()Z @ 4
+Event: 111.982 Thread 0x00007f1258005800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f12958c7104 method=java.util.AbstractCollection.isEmpty()Z @ 4
+Event: 111.982 Thread 0x00007f124c330000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f12958ef750 method=java.util.concurrent.locks.ReentrantLock$NonfairSync.lock()V @ 6
+Event: 111.982 Thread 0x00007f124c32f000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f12958ef78c method=ca.queensu.cs.controller.CapsuleTracker.run()V @ 300
+Event: 112.566 Thread 0x00007f124c330000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1295674928 method=java.util.LinkedHashMap.afterNodeRemoval(Ljava/util/HashMap$Node;)V @ 27
+Event: 112.990 Thread 0x00007f1258005800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f12958c6dac method=java.util.concurrent.locks.ReentrantLock$NonfairSync.lock()V @ 6
+Event: 143.672 Thread 0x00007f12a40c0000 nmethod 2588% 0x00007f1295a0d250 code [0x00007f1295a0d4e0, 0x00007f1295a0e608]
+Event: 143.672 Thread 0x00007f12a40c0000 2589   !   3       ca.queensu.cs.server.ByteReader::run (63 bytes)
+Event: 143.673 Thread 0x00007f12a40c0000 nmethod 2589 0x00007f1295a0b510 code [0x00007f1295a0b7a0, 0x00007f1295a0c848]
+Event: 143.679 Thread 0x00007f12a40bb800 2590 % !   4       ca.queensu.cs.server.ByteReader::run @ 33 (63 bytes)
+Event: 143.681 Thread 0x00007f12a40bb800 nmethod 2590% 0x00007f1295a0b050 code [0x00007f1295a0b1e0, 0x00007f1295a0b348]
+Event: 143.716 Thread 0x00007f12a40be800 2591   !   4       java.lang.ref.ReferenceQueue::enqueue (119 bytes)
+Event: 143.719 Thread 0x00007f12a40be800 nmethod 2591 0x00007f1295a11c50 code [0x00007f1295a11dc0, 0x00007f1295a12288]
+Event: 143.723 Thread 0x00007f12a40bb800 2592       4       java.lang.ref.ReferenceQueue::remove (6 bytes)
+Event: 143.728 Thread 0x00007f12a40bb800 nmethod 2592 0x00007f1295a112d0 code [0x00007f1295a11440, 0x00007f1295a11a88]
+ 0x00007f1250001800 JavaThread "Thread-0" [_thread_blocked, id=19580, stack(0x00007f124b2bf000,0x00007f124b3c0000)]
+  0x00007f124c330000 JavaThread "Thread-10" [_thread_blocked, id=19540, stack(0x00007f12706e1000,0x00007f12707e2000)]
+  0x00007f1250001800 JavaThread "Thread-0" [_thread_blocked, id=19580, stack(0x00007f124b2bf000,0x00007f124b3c0000)]
+  0x00007f124c330000 JavaThread "Thread-10" [_thread_blocked, id=19540, stack(0x00007f12706e1000,0x00007f12707e2000)]
+  0x00007f124c32f000 JavaThread "Thread-9" [_thread_blocked, id=19539, stack(0x00007f12705e0000,0x00007f12706e1000)]
+  0x00007f1258005800 JavaThread "waiter" [_thread_blocked, id=19533, stack(0x00007f12700dd000,0x00007f12701de000)]
+  0x00007f124c035000 JavaThread "EMF Reference Cleaner" daemon [_thread_blocked, id=19531, stack(0x00007f12703de000,0x00007f12704df000)]
+  0x00007f12a400c800 JavaThread "DestroyJavaVM" [_thread_blocked, id=19510, stack(0x00007f12ad6b3000,0x00007f12ad7b4000)]
+   0x00007f1250001800 JavaThread "Thread-0" [_thread_blocked, id=19580, stack(0x00007f124b2bf000,0x00007f124b3c0000)]
+  0x00007f124c330000 JavaThread "Thread-10" [_thread_blocked, id=19540, stack(0x00007f12706e1000,0x00007f12707e2000)]
+  0x00007f124c32f000 JavaThread "Thread-9" [_thread_blocked, id=19539, stack(0x00007f12705e0000,0x00007f12706e1000)]
+  0x00007f1258005800 JavaThread "waiter" [_thread_blocked, id=19533, stack(0x00007f12700dd000,0x00007f12701de000)]
+  0x00007f124c035000 JavaThread "EMF Reference Cleaner" daemon [_thread_blocked, id=19531, stack(0x00007f12703de000,0x00007f12704df000)]
+  0x00007f12a400c800 JavaThread "DestroyJavaVM" [_thread_blocked, id=19510, stack(0x00007f12ad6b3000,0x00007f12ad7b4000)]
+  0x00007f12a41be000 JavaThread "Thread-4" [_thread_blocked, id=19530, stack(0x00007f12704df000,0x00007f12705e0000)]
+  0x00007f12a40cb000 JavaThread "Service Thread" daemon [_thread_blocked, id=19526, stack(0x00007f1273afb000,0x00007f1273bfc000)]
+  0x00007f12a40c0000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=19524, stack(0x00007f1273bfc000,0x00007f1273cfd000)]
+  0x00007f12a40be800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=19523, stack(0x00007f1273cfd000,0x00007f1273dfe000)]
+  0x00007f12a40bb800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=19522, stack(0x00007f1273dfe000,0x00007f1273eff000)]
+  0x00007f12a40ba000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19521, stack(0x00007f1273eff000,0x00007f1274000000)]
+  0x00007f12a4086800 JavaThread "Finalizer" daemon [_thread_blocked, id=19520, stack(0x00007f1290a58000,0x00007f1290b59000)]
+  0x00007f12a4084000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19519, stack(0x00007f1290b59000,0x00007f1290c5a000)]
+   0x00007f1250001800 JavaThread "Thread-0" [_thread_blocked, id=19580, stack(0x00007f124b2bf000,0x00007f124b3c0000)]
+  0x00007f124c32f000 JavaThread "Thread-9" [_thread_blocked, id=19539, stack(0x00007f12705e0000,0x00007f12706e1000)]
+  0x00007f1258005800 JavaThread "waiter" [_thread_blocked, id=19533, stack(0x00007f12700dd000,0x00007f12701de000)]
+  0x00007f124c035000 JavaThread "EMF Reference Cleaner" daemon [_thread_blocked, id=19531, stack(0x00007f12703de000,0x00007f12704df000)]
+  0x00007f12a400c800 JavaThread "DestroyJavaVM" [_thread_blocked, id=19510, stack(0x00007f12ad6b3000,0x00007f12ad7b4000)]
+   0x00007f1250001800 JavaThread "Thread-0" [_thread_blocked, id=19580, stack(0x00007f124b2bf000,0x00007f124b3c0000)]
+  0x00007f124c330000 JavaThread "Thread-10" [_thread_blocked, id=19540, stack(0x00007f12706e1000,0x00007f12707e2000)]
+  f12a8d8a000-7f12a95c0000 rw-p 00000000 00:00 0 
+7f12a95c0000-7f12a9600000 ---p 00000000 00:00 0 
+7f12a9600000-7f12a99da000 rw-p 00000000 00:00 0 
+7f12a99da000-7f12a99db000 ---p 00000000 00:00 0 
+7f12a99db000-7f12a9adb000 rw-p 00000000 00:00 0 
+7f12a9adb000-7f12a9adc000 ---p 00000000 00:00 0 
+7f12a9adc000-7f12a9bdc000 rw-p 00000000 00:00 0 
+7f12a9bdc000-7f12a9bdd000 ---p 00000000 00:00 0 
+7f12a9bdd000-7f12a9cdd000 rw-p 00000000 00:00 0 
+7f12a9cdd000-7f12a9cde000 ---p 00000000 00:00 0 
+7f12a9cde000-7f12a9e08000 rw-p 00000000 00:00 0 
+7f12a9e08000-7f12aa070000 ---p 00000000 00:00 0 
+7f12aa070000-7f12aa09a000 rw-p 00000000 00:00 0 
+7f12aa09a000-7f12aa301000 ---p 00000000 00:00 0 
+7f12aa301000-7f12aa370000 rw-p 00000000 00:00 0 
+7f12aa370000-7f12aa44a000 ---p 00000000 00:00 0 
+7f12aa44a000-7f12aa474000 rw-p 00000000 00:00 0 
+7f12aa474000-7f12aa80b000 ---p 00000000 00:00 0 
+  0x00007f124c32f000 JavaThread "Thread-9" [_thread_blocked, id=19539, stack(0x00007f12705e0000,0x00007f12706e1000)]
+  0x00007f1258005800 JavaThread "waiter" [_thread_blocked, id=19533, stack(0x00007f12700dd000,0x00007f12701de000)]
+  0x00007f124c035000 JavaThread "EMF Reference Cleaner" daemon [_thread_blocked, id=19531, stack(0x00007f12703de000,0x00007f12704df000)]
+  0x00007f12a400c800 JavaThread "DestroyJavaVM" [_thread_blocked, id=19510, stack(0x00007f12ad6b3000,0x00007f12ad7b4000)]
+  0x00007f12a41be000 JavaThread "Thread-4" [_thread_blocked, id=19530, stack(0x00007f12704df000,0x00007f12705e0000)]
+  0x00007f12a40cb000 JavaThread "Service Thread" daemon [_thread_blocked, id=19526, stack(0x00007f1273afb000,0x00007f1273bfc000)]
+  0x00007f12a40c0000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=19524, stack(0x00007f1273bfc000,0x00007f1273cfd000)]
+  0x00007f12a40be800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=19523, stack(0x00007f1273cfd000,0x00007f1273dfe000)]
+  0x00007f12a40bb800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=19522, stack(0x00007f1273dfe000,0x00007f1273eff000)]
+  0x00007f12a40ba000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19521, stack(0x00007f1273eff000,0x00007f1274000000)]
+  0x00007f12a4086800 JavaThread "Finalizer" daemon [_thread_blocked, id=19520, stack(0x00007f1290a58000,0x00007f1290b59000)]
+  0x00007f12a4084000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19519, stack(0x00007f1290b59000,0x00007f1290c5a000)]
+   0x00007f1250001800 JavaThread "Thread-0" [_thread_blocked, id=19580, stack(0x00007f124b2bf000,0x00007f124b3c0000)]
+  0x00007f124c330000 JavaThread "Thread-10" [_thread_blocked, id=19540, stack(0x00007f12706e1000,0x00007f12707e2000)]
+  0x00007f124c32f000 JavaThread "Thread-9" [_thread_blocked, id=19539, stack(0x00007f12705e0000,0x00007f12706e1000)]
+  0x00007f1258005800 JavaThread "waiter" [_thread_blocked, id=19533, stack(0x00007f12700dd000,0x00007f12701de000)]
+  0x00007f124c035000 JavaThread "EMF Reference Cleaner" daemon [_thread_blocked, id=19531, stack(0x00007f12703de000,0x00007f12704df000)]
+  0x00007f12a400c800 JavaThread "DestroyJavaVM" [_thread_blocked, id=19510, stack(0x00007f12ad6b3000,0x00007f12ad7b4000)]
+  0x00007f12a41be000 JavaThread "Thread-4" [_thread_blocked, id=19530, stack(0x00007f12704df000,0x00007f12705e0000)]
+  0x00007f12a40cb000 JavaThread "Service Thread" daemon [_thread_blocked, id=19526, stack(0x00007f1273afb000,0x00007f1273bfc000)]
+  0x00007f12a40c0000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=19524, stack(0x00007f1273bfc000,0x00007f1273cfd000)]
+  0x00007f12a40be800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=19523, stack(0x00007f1273cfd000,0x00007f1273dfe000)]
+  0x00007f12a40bb800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=19522, stack(0x00007f1273dfe000,0x00007f1273eff000)]
+  0x00007f12a40ba000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19521, stack(0x00007f1273eff000,0x00007f1274000000)]
+  0x00007f12a4086800 JavaThread "Finalizer" daemon [_thread_blocked, id=19520, stack(0x00007f1290a58000,0x00007f1290b59000)]
+  0x00007f12a4084000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19519, stack(0x00007f1290b59000,0x00007f1290c5a000)]
+  0x00007f12a41be000 JavaThread "Thread-4" [_thread_blocked, id=19530, stack(0x00007f12704df000,0x00007f12705e0000)]
+  0x00007f12a40cb000 JavaThread "Service Thread" daemon [_thread_blocked, id=19526, stack(0x00007f1273afb000,0x00007f1273bfc000)]
+  0x00007f12a40c0000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=19524, stack(0x00007f1273bfc000,0x00007f1273cfd000)]
+  0x00007f12a40be800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=19523, stack(0x00007f1273cfd000,0x00007f1273dfe000)]
+  0x00007f12a40bb800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=19522, stack(0x00007f1273dfe000,0x00007f1273eff000)]
+  0x00007f12a40ba000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19521, stack(0x00007f1273eff000,0x00007f1274000000)]
+  0x00007f12a4086800 JavaThread "Finalizer" daemon [_thread_blocked, id=19520, stack(0x00007f1290a58000,0x00007f1290b59000)]
+  0x00007f12a4084000 JavaThread "Reference Handler" daemon [_thread_blocked, id=19519, stack(0x00007f1290b59000,0x00007f1290c5a000)]
