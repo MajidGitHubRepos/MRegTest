@@ -37,11 +37,13 @@ In your Eclipse just right click on the imported Java Project and click Configur
 
 
 ## Step 5 (Testing the functionality of our proposed method):
-We have tested the system using the UML-RT model: BankATM.uml and also we use the 
-For pefroming the test you will need to specify a file as "Collected Traces File". You can use already collected traces file in 
+In the following video we show how to use the system:
 
 [<p style="text-align:center;"><img src="https://i.ibb.co/nbM8rL6/You-Tube-icon.png" width="193" height="130"></p>](https://youtu.be/1PXjmKgadQI)
 
+Note:
+- We have tested the system using the UML-RT model: BankATM.uml and also we use the 
+- For pefroming the test you will need to specify a file as "Collected Traces File". You can use already collected traces file in 
 
 ## Source code layout
     .
